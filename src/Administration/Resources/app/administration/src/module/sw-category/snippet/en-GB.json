@@ -1,0 +1,121 @@
+{
+  "sw-category": {
+    "general": {
+      "mainMenuItemIndex": "Categories",
+      "mainMenuItemList": "Overview",
+      "descriptionTextModule": "Manage categories here.",
+      "headlineCategories": "Categories",
+      "placeholderSearchBar": "Search categories...",
+      "buttonCreate": "Create category",
+      "buttonSafeCategory": "Save",
+      "descriptionLabel": "Description",
+      "messageSaveSuccess": "Category \"{name}\" has been saved.",
+      "useAsLogo": "Use as display image",
+      "treeHeadline": "Category structure",
+      "treeHeadSelected": "{count} selected",
+      "emptyStateHeadline": "No category selected",
+      "actions": {
+        "actionsDisabledInLanguage": "Categories can only be created in the default language.",
+        "createSub": "New subcategory",
+        "createBefore": "New category before",
+        "createAfter": "New category after"
+      }
+    },
+    "view": {
+      "general": "General",
+      "cms": "Content"
+    },
+    "base": {
+      "general": {
+        "categoryNameLabel": "Name",
+        "headlineInformationCard": "General",
+        "isCategoryActiveLabel": "Category active",
+        "useAsLink": "Use as link",
+        "labelCategoryTags": "Tags",
+        "labelCategoryTagsPlaceholder": "Enter tags individually...",
+        "types": {
+          "title": "Category type",
+          "page": "Category",
+          "folder": "Structuring element",
+          "link": "Customisable link",
+          "help": "A structure category is not callable by itself, but is only used for outlining purposes."
+        }
+      },
+      "entry-point": {
+        "title": "Entry point",
+        "navigation": {
+          "descriptionGeneral": "You have assigned this category as an entry point for the main navigation in these Sales Channels:"
+        },
+        "serviceSales": {
+          "descriptionGeneral": "You have assigned this category as an entry point for the service navigation in these Sales Channels:"
+        },
+        "footerSales": {
+          "descriptionGeneral": "You have assigned this category as an entry point for the footer navigation in these Sales Channels:"
+        }
+      },
+      "seo": {
+        "title": "SEO",
+        "labelMetaTitle": "Meta title",
+        "labelMetaDescription": "Description",
+        "labelKeywords": "Keywords",
+        "placeholderMetaTitle": "Enter meta title...",
+        "placeholderMetaDescription": "Enter a description...",
+        "placeholderKeywords": "Enter one or more keywords..."
+      },
+      "menu": {
+        "title": "Menu settings",
+        "visible": "Hide in navigation",
+        "imageLabel": "Display image",
+        "descriptionLabel": "Description",
+                "descriptionPlaceholder": "Enter description..."
+
+      },
+      "cms": {
+        "title": "Layout assignment",
+        "changeLayout": "Change layout",
+        "changeLayoutEmpty": "Assign layout",
+        "editInPagebuilder": "Edit in designer",
+        "editInPagebuilderEmpty": "Create new layout",
+        "editContent": "Edit content",
+        "defaultTitle": "Default layout",
+        "defaultDesc": "Category page"
+      },
+      "link": {
+        "title": "Customisable link",
+        "example": "Example:",
+        "internalExampleText": "/my-category",
+        "externalDesc": "To set external links, insert the complete web address:",
+        "internalDesc": "If you want to create an internal link, just add the path that follows the domain:",
+        "linkLabel": "Link destination"
+      },
+      "products": {
+        "productAssignmentHeadline": "Product assignment",
+        "productAssignmentPlaceholder": "Search and assign products...",
+        "productAssignmentLabel": "Products",
+        "productAssignmentEmptyStateDescription": "No products assigned",
+        "productStreamAssignmentEmptyStateDescription": "No dynamic product group assigned",
+        "columnNameLabel": "Name",
+        "columnManufacturerLabel": "Manufacturer",
+        "productAssignmentTypeLabel": "Type",
+        "productAssignmentTypeManualLabel": "Manual selection",
+        "productAssignmentTypeStreamLabel": "Dynamic product group",
+        "productAssignmentTypeStreamPlaceholder": "Search and assign dynamic product groups...",
+        "alertManualAssignedProductsOnAssignmentTypeStream": "There are still manually assigned products in this category. Those products will not be visible in this category but may be visible in parent categories.",
+        "dynamicProductGroupDetailLinkText": "Dynamic product group details",
+        "dynamicProductGroupInvalidMessage": "The selected dynamic product group is not valid. Please verify your dynamic product group details."
+      }
+    },
+    "modal": {
+      "textDeleteConfirm": "Are you sure you really want to delete the category \"{name}\"?",
+      "textDeleteChildrenConfirm": "All subcategories will be deleted too.",
+      "textDeleteMultipleConfirm": "Are you sure you want to delete the {count} selected categories?"
+    }
+  },
+  "sw-privileges": {
+    "permissions": {
+      "category": {
+        "label": "Categories"
+      }
+    }
+  }
+}
