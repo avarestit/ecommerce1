@@ -1,0 +1,28 @@
+.sw-settings-document-detail {
+    .sw-settings-document--alert-change-parent {
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    .sw-settings-document-detail__field_default {
+        position: relative;
+
+        .sw-help-text {
+            position: absolute;
+            top: 38px;
+            right: 18px;
+        }
+    }
+
+    .sw-form-field-renderer.sw-select {
+        margin-bottom: 22px;
+    }
+
+    .sw-settings-document-detail__form-field-renderer {
+        margin-bottom: 22px;
+    }
+
+    .sw-settings-document-detail__company-address-checkbox {
+        margin-top: 22px;
+    }
+}
