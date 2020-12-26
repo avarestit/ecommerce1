@@ -1,0 +1,11 @@
+{
+  "sw-settings-listing": {
+    "general": {
+      "mainMenuItemGeneral": "Products",
+      "textHeadline": "Products",
+      "description": "Manage the display of products here.",
+      "buttonSave": "Save",
+      "messageSaveSuccess": "The configuration has been saved."
+    }
+  }
+}
