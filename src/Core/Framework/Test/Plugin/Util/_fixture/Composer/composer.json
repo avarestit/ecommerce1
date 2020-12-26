@@ -1,0 +1,19 @@
+{
+    "name": "swag/test",
+    "description": "Test description",
+    "version": "v1.0.1",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "shopware AG",
+            "role": "Manufacturer"
+        }
+    ],
+    "require": {
+        "shopware/platform": "6.3.*@dev"
+    },
+    "extra": {
+        "shopware-plugin-class": "Works\\Works"
+    }
+}
