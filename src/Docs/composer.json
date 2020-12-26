@@ -1,0 +1,27 @@
+{
+    "name": "shopware/docs",
+    "description": "Docs for the Shopware Core",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Shopware\\Docs\\": ""
+        },
+        "exclude-from-classmap": [
+            "*/Test/"
+        ]
+    },
+    "require": {
+        "cocur/slugify": "3.2",
+        "composer/composer": "1.9.1",
+        "erusev/parsedown-extra": "0.7.1",
+        "guzzlehttp/guzzle": "6.4.1",
+        "shopware/core": "*",
+        "symfony/config": "4.4.1",
+        "symfony/console": "4.4.1",
+        "symfony/dependency-injection": "4.4.1",
+        "symfony/filesystem": "4.4.1",
+        "symfony/finder": "4.4.1",
+        "symfony/http-kernel": "4.4.1"
+    }
+}
