@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="Shopware\Core\System\Snippet\Aggregate\SnippetSet\SnippetSetDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="Shopware\Core\System\Snippet\SnippetDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="Shopware\Core\System\Snippet\SnippetValidatorInterface" class="Shopware\Core\System\Snippet\SnippetValidator">
+            <argument type="tagged" tag="shopware.snippet.file" />
+            <argument>%kernel.project_dir%/</argument>
+        </service>
+
+        <service id="Shopware\Core\System\Snippet\Command\ValidateSnippetsCommand">
+            <argument type="service" id="Shopware\Core\System\Snippet\SnippetValidatorInterface" />
+
+            <tag name="console.command"/>
+        </service>
+
+    </services>
+</container>
