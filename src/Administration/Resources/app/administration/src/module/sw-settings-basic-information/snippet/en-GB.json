@@ -1,0 +1,16 @@
+{
+  "sw-settings-basic-information": {
+    "general": {
+      "mainMenuItemGeneral": "Basic information",
+      "description": "Change basic information here.",
+      "textHeadline": "Basic information",
+      "buttonSave": "Save",
+      "messageSaveSuccess": "Configuration has been saved."
+    },
+    "captcha": {
+      "label": {
+        "honeypot": "Honeypot Captcha"
+      }
+    }
+  }
+}
