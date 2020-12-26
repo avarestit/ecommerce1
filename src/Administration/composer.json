@@ -1,0 +1,30 @@
+{
+    "name": "shopware/administration",
+    "description": "Administration frontend for the Shopware Core",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Shopware\\Administration\\": ""
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.2.9"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "6.3.x-dev"
+        }
+    },
+    "version": "6.3.3.0",
+    "require": {
+        "shopware/core": "*",
+        "symfony/framework-bundle": "~4.4.13",
+        "symfony/http-foundation": "~4.4.13",
+        "symfony/routing": "~4.4.13",
+        "symfony/mime": "~4.4.13"
+    }
+}
