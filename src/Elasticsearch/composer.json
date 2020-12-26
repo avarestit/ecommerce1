@@ -1,0 +1,33 @@
+{
+    "name": "shopware/elasticsearch",
+    "description": "Elasticsearch for Shopware",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Shopware\\Elasticsearch\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Test/"
+        ]
+    },
+    "config": {
+        "platform": {
+            "php": "7.2.9"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "ext-curl": "*",
+        "doctrine/dbal": "2.10.1",
+        "elasticsearch/elasticsearch": "7.2.2",
+        "ongr/elasticsearch-dsl": "7.0.0",
+        "shopware/core": "*",
+        "symfony/http-foundation": "4.4.7",
+        "symfony/messenger": "4.4.4"
+    },
+    "require-dev": {
+        "symfony/dependency-injection": "4.4.4",
+        "phpunit/phpunit": "8.5.2"
+    }
+}
