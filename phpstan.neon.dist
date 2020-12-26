@@ -1,0 +1,101 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    level: 8
+    treatPhpDocTypesAsCertain: false
+    checkMissingIterableValueType: false
+    inferPrivatePropertyTypeFromConstructor: true
+    reportUnmatchedIgnoredErrors: true # Could be set to false if necessary during PHPStan update
+    tmpDir: ../var/cache/phpstan
+    paths:
+        - src
+        - ../src
+    symfony:
+        constant_hassers: false
+        # the placeholder "%ShopwareHashedCacheDir%" will be replaced on execution by dev-ops/analyze/phpstan-config-generator.php script
+        container_xml_path: '..%ShopwareHashedCacheDir%/srcShopware_Development_KernelDevDebugContainer.xml'
+
+    featureToggles:
+        unusedClassElements: true
+
+    excludes_analyse:
+        - src/Recovery/*
+        - src/Storefront/Framework/Cache/CacheDecorator.php
+        - src/Elasticsearch/Product/ElasticsearchProductDefinition.php
+        - src/Elasticsearch/Framework/DataAbstractionLayer/ElasticsearchEntitySearcher.php
+        - src/Core/System/SalesChannel/Context/SalesChannelContextFactory.php
+        - src/Core/Migration/Migration1591253089OrderDeeplinkForMailTemplates.php
+        - src/Core/Migration/Migration1588153272UpdateGermanMailTemplates.php
+        - src/Core/Framework/Routing/ApiRequestContextResolver.php
+        - src/Core/Framework/Api/Sync/SyncService.php
+        - src/Elasticsearch/Test/Product/ElasticsearchProductDefinitionExtension.php
+        - ../src/Command/ConfigDebugCommand.php
+        - ../src/Command/DatabaseDebugViewGenerator.php
+        - src/Core/Checkout/Cart/Order/OrderConverter.php
+        - src/Core/Framework/DataAbstractionLayer/FieldSerializer/CashRoundingConfigFieldSerializer.php
+        - src/Core/Framework/DataAbstractionLayer/Dbal/FieldAccessorBuilder/ListingPriceFieldAccessorBuilder.php
+        - src/Docs/Resources/current/60-references-internals/10-core/50-checkout-process/_examples/10-cart-example.php
+        - src/Docs/Resources/deprecated/2-internals/1-core/50-checkout-process/_examples/10-cart-example.php
+
+        # Symfony Patches, can be removed with next patch version
+        - src/Core/Framework/Adapter/Cache/CacheCollectorPass.php
+
+        # Tests
+        - src/**/*Test.php
+        - src/Core/Framework/Test/**/*.php
+
+        - src/Core/TestBootstrap.php
+
+    ignoreErrors:
+        # PhpStan does not recognize the Faker plugins correctly. They are called via magic methods
+        - '#Access to an undefined property Faker\\Generator::\$[^.]+\.#'
+        # For BC with Symfony 4
+        - '#Method Symfony\\Contracts\\EventDispatcher\\EventDispatcherInterface::dispatch\(\) invoked with 2 parameters, 1 required\.#'
+        # For BC in Entity repository clone
+        - '#Method .*EntityRepositoryInterface::clone\(\) invoked with 4 parameters, 2-3 required\.#'
+        -
+            message: '#PHPDoc tag @param references unknown parameter: \$behavior#'
+            path: src/Core/Framework/DataAbstractionLayer/EntityRepositoryInterface.php
+
+        # To fix this error, the \Shopware\Core\Framework\Struct\Collection::createNew method has to be implemented
+        # in every implementation of `Collection` and needs to return `new self` instead of `new static`. See https://github.com/phpstan/phpstan/issues/2773
+        -
+             message: '#Unsafe usage of new static\(\)#'
+             path: src/Core/Framework/Struct/Collection.php
+        # Exception for CopyBatch file system plugin. It is called via magic method
+        - '#Call to an undefined method League\\Flysystem\\FilesystemInterface::copyBatch\(\)\.#'
+        -
+             message: '#Access to private property#'
+             path: src/Core/Framework/Api/Controller/CacheController.php
+        # Invalid phpdoc in OpenAPI Library
+        -
+             message: '#Strict comparison using#'
+             path: src/Core/Framework/Api/ApiDefinition/Generator/OpenApi/OpenApiLoader.php
+
+        - '#Property Shopware\\Core\\Checkout\\Order\\Event\\OrderStateMachineStateChangeEvent::\$salesChannelId is never read, only written.#'
+        -
+            message: '#Cannot call method fetchAll\(\) on Doctrine\\DBAL\\Driver\\Statement\|int.#'
+            path: src/Core/Migration/Migration1599822061MigrateOrderMails.php
+
+services:
+    -
+        class: Shopware\Development\Analyze\PHPStan\Rules\Decoratable\DecoratableImplementsInterfaceRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Shopware\Development\Analyze\PHPStan\Rules\Decoratable\DecoratableDoesNotAddPublicMethodRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Shopware\Development\Analyze\PHPStan\Rules\Decoratable\DecoratableDoesNotCallOwnPublicMethodRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Shopware\Development\Analyze\PHPStan\Rules\Decoratable\DecoratableNotDirectlyDependetRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Shopware\Development\Analyze\PHPStan\Rules\Decoratable\DecoratableNotInstantiatedRule
+        tags:
+            - phpstan.rules.rule
